@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='socialize',
-    version='0.1',
+    version='0.1.0',
     description='The official command-line client of socialize',
     author='Dominic Monn',
     author_email='monn.dominic@gmail.com',
@@ -16,6 +16,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        soclz=socialize.cli:cli
+        socl=socialize.cli:init
     ''',
 )
