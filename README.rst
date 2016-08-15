@@ -1,8 +1,8 @@
-######################
-Socialize
-######################
+################################################
+Socialize - A social network on the command line
+################################################
 
-TBD
+Python CLI client for 'Socialize - A social network on the command line'.
 
 
 ============
