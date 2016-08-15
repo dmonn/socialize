@@ -13,9 +13,10 @@ setup(
     py_modules=['socialize'],
     install_requires=[
         'Click',
+        'requests',
     ],
     entry_points='''
         [console_scripts]
-        socl=socialize.cli:init
+        socl=socialize.router:init
     ''',
 )
