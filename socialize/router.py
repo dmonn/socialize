@@ -1,6 +1,6 @@
 import click
 from services.auth_service import auth
-from services.user_service import user
+from services.user_service import usermanagement
 
 
 @click.group()
@@ -37,4 +37,24 @@ def logout():
 @init.command()
 def me():
     """Shows current user"""
-    user.get_current_user()
+    usermanagement.get_current_user()
+
+
+@init.command()
+@click.option('--slogan', help="Specify a slogan in quotes, e.g. 'this is my slogan'", default=None)
+@click.option('--website', help="Specify a website", default=None)
+@click.option('--interests', help="Specify some interests in quotes, e.g. 'Python, Stuff, Stuff'", default=None)
+@click.option('--skills', help="Specify some skills in quotes, e.g. 'Programming, Eating, Sleeping'", default=None)
+def profile(slogan, website, interests, skills):
+    """Set profile details"""
+    usermanagement.set_attr(slogan, website, interests, skills)
+
+
+@init.command()
+@click.argument('name')
+def user(name):
+    """Get a specific user by name"""
+    usermanagement.get_user(name)
+
+
+# Followingship

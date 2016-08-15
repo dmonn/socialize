@@ -1,4 +1,3 @@
-# 2. User Management
 # 3. Following
 # 4. Post of Status
 # 5. Shoutouts

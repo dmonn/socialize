@@ -9,7 +9,7 @@ class Service(object):
         if os.path.isfile(".AUTHTOKEN"):
             try:
                 token = self.read_file(".AUTHTOKEN")
-                r = requests.get(BASE_URL+path, headers={'Authorization': 'Token '+token})
+                r = requests.get(BASE_URL + path, headers={'Authorization': 'Token ' + token})
                 return r.json()
             except Exception as e:
                 print e
@@ -20,7 +20,7 @@ class Service(object):
         if os.path.isfile(".AUTHTOKEN"):
             try:
                 token = self.read_file(".AUTHTOKEN")
-                r = requests.post(BASE_URL+path, headers={'Authorization': 'Token '+token}, data=data)
+                r = requests.post(BASE_URL + path, headers={'Authorization': 'Token ' + token}, data=data)
                 return r
             except Exception as e:
                 print e
@@ -43,3 +43,10 @@ class Service(object):
         """
         with file(filename) as f:
             return f.read()
+
+    def check_reponse(self, r, success,
+                      error="There was an error with your request. Please use the --help function or contact the administrator."):
+        if r.status_code == 200:
+            print success
+        else:
+            print error
