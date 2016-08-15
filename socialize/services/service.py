@@ -1,7 +1,7 @@
 import os.path
 import requests
 
-BASE_URL = 'https://socialize.dmonn.ch/'
+BASE_URL = 'https://socialize.dmonn.ch/api/'
 
 
 class Service(object):
