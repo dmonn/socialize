@@ -58,3 +58,16 @@ def user(name):
 
 
 # Followingship
+
+@init.command()
+@click.argument('name')
+def follow(name):
+    """Follow a specific user"""
+    usermanagement.follow_user(name)
+
+
+@init.command()
+@click.argument('name')
+def unfollow(name):
+    """Unfollow a specific user"""
+    usermanagement.unfollow_user(name)

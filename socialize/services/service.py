@@ -2,6 +2,7 @@ import os.path
 import requests
 
 BASE_URL = 'https://socialize.dmonn.ch/api/'
+# BASE_URL = 'http://localhost:8001/api/'
 
 
 class Service(object):
@@ -46,7 +47,8 @@ class Service(object):
 
     def check_reponse(self, r, success,
                       error="There was an error with your request. Please use the --help function or contact the administrator."):
-        if r.status_code == 200:
+        print r.text
+        if r.status_code == 200 and r.text != '400':
             print success
         else:
             print error

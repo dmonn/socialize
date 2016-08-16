@@ -17,7 +17,7 @@ class UserService(Service):
         self.check_reponse(r, "Profile successfully updated.")
 
     def get_user(self, name):
-        r = self.get('user/'+name+"/")
+        r = self.get('user/' + name + "/")
 
         if r != 404:
             self.print_user_info(r)
@@ -36,6 +36,20 @@ class UserService(Service):
         print("Status:   \t" + str(r['status']))
         print("Joined Groups:   \t" + str(r['status']))
         print("")
+
+    # Following
+
+    def follow_user(self, username):
+        r = self.post('user/follow/' + username + '/', data={})
+
+        self.check_reponse(r, success="Successfully followed user " + username,
+                           error="Unable to follow user " + username + ".")
+
+    def unfollow_user(self, username):
+        r = self.post('user/unfollow/' + username + '/', data={})
+
+        self.check_reponse(r, success="Successfully unfollowed user " + username,
+                           error="Unable to cancel follow for user " + username + ". Are you really following this user?")
 
 
 usermanagement = UserService()
