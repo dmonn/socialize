@@ -1,4 +1,5 @@
 from .service import Service
+from click import secho
 
 
 class UserService(Service):
@@ -25,17 +26,17 @@ class UserService(Service):
             print("The user was not found. Maybe you typed the username wrong?")
 
     def print_user_info(self, r):
-        print("")
-        print("********** " + r['username'] + " **********")
-        print("")
-        print("Slogan: \t" + str(r['slogan']))
-        print("Website:\t" + str(r['website']))
-        print("Interests:\t" + str(r['interests']))
-        print("Skills:   \t" + str(r['skills']))
-        print("")
-        print("Status:   \t" + str(r['status']))
-        print("Joined Groups:   \t" + str(r['status']))
-        print("")
+        secho("")
+        secho("********** " + r['username'] + " **********", bg='blue', fg='white')
+        secho("")
+        secho("Slogan: \t" + str(r['slogan']))
+        secho("Website:\t" + str(r['website']))
+        secho("Interests:\t" + str(r['interests']))
+        secho("Skills:   \t" + str(r['skills']))
+        secho("")
+        secho("Status:   \t" + str(r['status']))
+        secho("Joined Groups:   \t" + str(r['status']))
+        secho("")
 
     # Following
 

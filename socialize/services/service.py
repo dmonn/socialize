@@ -47,7 +47,6 @@ class Service(object):
 
     def check_reponse(self, r, success,
                       error="There was an error with your request. Please use the --help function or contact the administrator."):
-        print r.text
         if r.status_code == 200 and r.text != '400':
             print success
         else:

@@ -1,5 +1,6 @@
 import click
 from services.auth_service import auth
+from services.status_service import statusmanagement
 from services.user_service import usermanagement
 
 
@@ -71,3 +72,21 @@ def follow(name):
 def unfollow(name):
     """Unfollow a specific user"""
     usermanagement.unfollow_user(name)
+
+
+@init.group()
+def status():
+    """Status management"""
+    pass
+
+
+@status.command()
+def feed():
+    """Get status feed of the 20 latest statuses"""
+    statusmanagement.get_feed()
+
+@status.command()
+@click.argument('message')
+def post(message):
+    """Post a new status (use quotes, eg. 'This is my new status'"""
+    statusmanagement.post_status(message)
