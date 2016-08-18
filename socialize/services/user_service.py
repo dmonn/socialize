@@ -35,7 +35,7 @@ class UserService(Service):
         secho("Skills:   \t" + str(r['skills']))
         secho("")
         secho("Status:   \t" + str(r['status']))
-        secho("Joined Groups:   \t" + str(r['status']))
+        secho("Groups:   \t" + str(r['groups']))
         secho("")
 
     # Following

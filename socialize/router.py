@@ -1,5 +1,6 @@
 import click
 from services.auth_service import auth
+from services.group_service import groups
 from services.shoutout_service import shoutouts
 from services.status_service import statusmanagement
 from services.user_service import usermanagement
@@ -113,3 +114,68 @@ def feed():
 def post(message, anon):
     """Post a new shoutout (use quotes). Use the anon option to post the shoutout anonymously"""
     shoutouts.post_status(message, anon)
+
+# Groups
+
+@init.group()
+def group():
+    """Group management"""
+    pass
+
+
+@group.command()
+@click.argument('name')
+@click.option('-p', '--password', default=None, help='Sometimes you have to provide a passphrase to join a group.')
+def join(name, password):
+    """Join a group with a given name (password might be to be provided"""
+    groups.join_group(name, password)
+
+
+@group.command()
+@click.argument('name')
+def leave(name):
+    """Leave a previously joined group"""
+    groups.leave_group(name)
+
+
+@group.command()
+@click.argument('name')
+def delete(name):
+    """Delete one of your groups (you have to be the creator!)"""
+    groups.delete_group(name)
+
+
+@group.command()
+@click.argument('name')
+def show(name):
+    """Show group info"""
+    groups.get_group(name)
+
+
+@group.command()
+@click.argument('name')
+@click.option('-d', '--description', default=None, help='Set a short description of your group.')
+@click.option('-p', '--password', default=None, help='Set your group to private and set a password.')
+def create(name, description, password):
+    """Create a new group with a given name You can also provide a short description and/or a password to make the group private"""
+    groups.create_group(name, description, password)
+
+
+# Groupmessages
+
+
+@group.command()
+@click.argument('name')
+def feed(name):
+    """Groupmessage feed"""
+    groups.get_group_messages(name)
+
+
+@group.command()
+@click.argument('name')
+@click.argument('message')
+def message(name, message):
+    """Post a new group message (write in quotes)"""
+    groups.post_group_message(name, message)
+
+
