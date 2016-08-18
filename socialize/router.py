@@ -1,5 +1,6 @@
 import click
 from services.auth_service import auth
+from services.shoutout_service import shoutouts
 from services.status_service import statusmanagement
 from services.user_service import usermanagement
 
@@ -73,6 +74,7 @@ def unfollow(name):
     """Unfollow a specific user"""
     usermanagement.unfollow_user(name)
 
+# Status
 
 @init.group()
 def status():
@@ -88,5 +90,26 @@ def feed():
 @status.command()
 @click.argument('message')
 def post(message):
-    """Post a new status (use quotes, eg. 'This is my new status'"""
+    """Post a new status (use quotes)"""
     statusmanagement.post_status(message)
+
+
+# Shoutouts
+
+@init.group()
+def shout():
+    """Shoutout management"""
+    pass
+
+
+@shout.command()
+def feed():
+    """Get shout feed of the 20 latest shoutouts"""
+    shoutouts.get_feed()
+
+@shout.command()
+@click.argument('message')
+@click.option('--anon/--public', default=False)
+def post(message, anon):
+    """Post a new shoutout (use quotes). Use the anon option to post the shoutout anonymously"""
+    shoutouts.post_status(message, anon)
