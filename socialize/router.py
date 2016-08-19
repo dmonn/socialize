@@ -1,6 +1,7 @@
 import click
 from services.auth_service import auth
 from services.group_service import groups
+from services.message_service import messages
 from services.shoutout_service import shoutouts
 from services.status_service import statusmanagement
 from services.user_service import usermanagement
@@ -179,3 +180,43 @@ def message(name, message):
     groups.post_group_message(name, message)
 
 
+# Messages
+
+@init.group()
+def message():
+    """Message management"""
+    pass
+
+
+@message.command()
+@click.argument('user')
+@click.argument('message')
+def send(user, message):
+    """Send a new message, providing the user and the message in quotes"""
+    messages.send_message(user, message)
+
+
+@message.command()
+def unread():
+    """Get a list of all unread messages in the inbox"""
+    messages.get_unread_messages()
+
+
+@message.command()
+@click.argument('id')
+def read(id):
+    """Read a message by ID - You can get the id from the unread command"""
+    messages.read_message(id)
+
+
+@message.command()
+@click.argument('user')
+def conversation(user):
+    """Get a conversation with a specific user"""
+    messages.get_conversation(user)
+
+
+@message.command()
+def conversations():
+    """Get all conversations with a user"""
+    messages.get_conversations()
