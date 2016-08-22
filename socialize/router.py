@@ -269,3 +269,19 @@ def joke():
     """Supporter message: Try it out"""
     print("Just laugh.")
 
+
+@init.command()
+def medicine():
+    """Supporter message: Try it out"""
+    print("Have a free checkup. Preventative health care is the cheapest sort!")
+
+
+@init.command()
+def hack():
+    """Supporter message: Try it out"""
+    print("Find a teacher. Then kill your buddha.")
+
+
+@init.command()
+def nicolaialex():
+    print("pursue happiness , and program")
