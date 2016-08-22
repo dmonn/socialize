@@ -1,5 +1,6 @@
 import click
 from services.auth_service import auth
+from services.finder_service import finders
 from services.group_service import groups
 from services.message_service import messages
 from services.shoutout_service import shoutouts
@@ -220,3 +221,31 @@ def conversation(user):
 def conversations():
     """Get all conversations with a user"""
     messages.get_conversations()
+
+
+# Finders
+
+@init.group()
+def find():
+    """Tool to find users and groups"""
+    pass
+
+
+@find.command()
+def friends():
+    """Returns up to 25 random people"""
+    finders.random_users()
+
+
+@find.command()
+@click.argument('name')
+def user(name):
+    """Find a user by name"""
+    finders.find_users(name)
+
+
+@find.command()
+@click.argument('name')
+def group(name):
+    """Find a group by name"""
+    finders.find_group(name)
