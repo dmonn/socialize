@@ -2,6 +2,7 @@ import click
 from services.auth_service import auth
 from services.finder_service import finders
 from services.group_service import groups
+from services.kickstarter_service import kick
 from services.message_service import messages
 from services.shoutout_service import shoutouts
 from services.status_service import statusmanagement
@@ -249,3 +250,22 @@ def user(name):
 def group(name):
     """Find a group by name"""
     finders.find_group(name)
+
+
+# Kickstarters
+
+@init.command()
+def kickstarter():
+    """Print all supporters"""
+    kick.get_supporters()
+
+@init.command()
+def wired():
+    """Supporter message: Try it out"""
+    print("Let's all Love Lain")
+
+@init.command()
+def joke():
+    """Supporter message: Try it out"""
+    print("Just laugh.")
+
