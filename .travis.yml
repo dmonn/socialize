@@ -1,7 +1,4 @@
 language: python
-os:
-  - linux
-  - osx
 
 python:
   - "2.6"
@@ -15,4 +12,4 @@ install:
   - pip install -r .travis-requirements.txt
   - pip install --editable .
 
-script: "python setup.py develop && make test"
+script: make test

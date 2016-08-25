@@ -1,5 +1,5 @@
 import requests
-from helpers.auth_helpers import create_token_file, remove_token_file
+from socialize.helpers.auth_helpers import create_token_file, remove_token_file
 
 
 class AuthService(object):
