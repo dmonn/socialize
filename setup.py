@@ -1,8 +1,8 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='socialize',
-    version='1.0.0',
+    version='1.0.1',
     description='The official command-line client of socialize',
     author='Dominic Monn',
     author_email='monn.dominic@gmail.com',
@@ -11,6 +11,7 @@ setup(
     license='BSD',
     platforms=['OS Independent'],
     py_modules=['socialize'],
+    packages=find_packages(),
     install_requires=[
         'Click',
         'requests',
