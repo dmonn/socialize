@@ -1,8 +1,7 @@
-import click
 import requests
 from click.testing import CliRunner
 
-from router import hack
+from socialize.router import hack
 
 def test_supporter_message():
 
