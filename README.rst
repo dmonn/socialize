@@ -19,7 +19,7 @@ Usage
 =====
 
 Please stay tuned for a extensive documentation on the usage.
-In the meantime, you can use the ``socl``command or you can consult the `API Docs`_.
+In the meantime, you can use the ``socl`` command or you can consult the `API Docs`_.
 
 .. _API Docs: https://socialize.dmonn.ch
 
