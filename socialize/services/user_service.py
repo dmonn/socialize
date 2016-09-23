@@ -24,8 +24,20 @@ class UserService(Service):
             self.print_user_info(r)
         else:
             print("The user was not found. Maybe you typed the username wrong?")
+            
+    def display_groups(self, groups):
+        groups.pop(0)
+        
+        for group in groups:
+            secho("\t\t"+ str(group))
 
     def print_user_info(self, r):
+        # TODO: Refactoring, this is ugly
+        try:
+            initial_group = r['groups'][0]
+        except:
+            initial_group = 'None'
+            
         secho("")
         secho("********** " + r['username'] + " **********", bg='blue', fg='white')
         secho("")
@@ -35,9 +47,15 @@ class UserService(Service):
         secho("Skills:   \t" + str(r['skills']))
         secho("")
         secho("Status:   \t" + str(r['status']))
-        secho("Groups:   \t" + str(r['groups']))
+        secho("Groups:   \t" + str(initial_group))
+        if initial_group != 'None':
+            self.display_groups(r['groups'])
         secho("")
-
+        secho("Followers:\t" + str(r['followers']))
+        secho("Following:\t" + str(r['following']))
+        secho("")
+        
+        
     # Following
 
     def follow_user(self, username):
