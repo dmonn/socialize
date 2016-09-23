@@ -1,8 +1,14 @@
 CHANGELOG
 =========
 
-1.0.1 (xx)
-----------
+1.0.2 (2016-09-23)
+------------------
+* Userprofile Group Formatting
+* Added Follower/Following count
+
+
+1.0.1 (2016-09-23)
+------------------
 * Added find_package utility
 
 1.0.0 (2016-08-25)
