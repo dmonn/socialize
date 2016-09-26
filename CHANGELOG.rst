@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+1.0.3 (2016-09-26)
+------------------
+* Improvements for API Version 1.0.1
+* Fixed Group Joining
+* Auth improvements
+
 1.0.2 (2016-09-23)
 ------------------
 * Userprofile Group Formatting

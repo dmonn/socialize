@@ -18,8 +18,10 @@ Be sure to have python and pip installed. If you haven't, please install `Python
 Usage
 =====
 
-Please stay tuned for a extensive documentation on the usage.
-In the meantime, you can use the ``socl``command or you can consult the `API Docs`_.
+To use the client, please first register using ``socl register`` or login using ``socl login``.
+After that, you can use ``socl help`` to get an overview.
+
+If you want, you can consult the `API Docs`_.
 
 .. _API Docs: https://socialize.dmonn.ch
 

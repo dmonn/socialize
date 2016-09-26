@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='socialize',
-    version='1.0.2',
+    version='1.0.3',
     description='The official command-line client of socialize',
     author='Dominic Monn',
     author_email='monn.dominic@gmail.com',
