@@ -1,5 +1,6 @@
 import os.path
 import requests
+import sys
 
 BASE_URL = 'https://socialize.dmonn.ch/api/'
 # BASE_URL = 'http://localhost:8001/api/'
@@ -33,7 +34,7 @@ class Service(object):
         Do something if auth failed
         :return: Status and message
         """
-        print("You aren't authenticated yet. Please use the login or register command to do so.")
+        sys.exit("You aren't authenticated yet. Please use the login or register command to do so.")
         return 403, "Authentication failed"
 
     def read_file(self, filename):
@@ -47,7 +48,7 @@ class Service(object):
 
     def check_reponse(self, r, success,
                       error="There was an error with your request. Please use the --help function or contact the administrator."):
-        if r.status_code == 200 and r.text != '400':
+        if r.status_code == 200 and r.text != '400' and r.content != 403:
             print success
         else:
             print error
