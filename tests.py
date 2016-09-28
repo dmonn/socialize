@@ -40,6 +40,5 @@ def test_request_post():
 
 def test_socialize():
     env = TestFileEnvironment('./test-output')
-    env.reset()
     result = env.run('socl me')
     assert result.stdout.startswith("You aren't authenticated yet")
