@@ -1,3 +1,3 @@
 test:
 	$(shell export PYTHONPATH=$PYTHONPATH:$(pwd))
-	py.test tests.py
+	py.test -vv tests.py

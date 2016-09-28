@@ -1,12 +1,12 @@
 import click
-from services.auth_service import auth
-from services.finder_service import finders
-from services.group_service import groups
-from services.kickstarter_service import kick
-from services.message_service import messages
-from services.shoutout_service import shoutouts
-from services.status_service import statusmanagement
-from services.user_service import usermanagement
+from .services.auth_service import auth
+from .services.finder_service import finders
+from .services.group_service import groups
+from .services.kickstarter_service import kick
+from .services.message_service import messages
+from .services.shoutout_service import shoutouts
+from .services.status_service import statusmanagement
+from .services.user_service import usermanagement
 
 
 @click.group()
