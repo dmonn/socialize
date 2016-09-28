@@ -1,6 +1,7 @@
 import requests
 import click
 from click.testing import CliRunner
+from scripttest import TestFileEnvironment
 
 # Verify installation
 
@@ -33,3 +34,12 @@ def test_request_get():
 def test_request_post():
     r = requests.post('https://google.com', data={})
     assert r.status_code == 405
+
+
+# Test Socialize Installation
+
+def test_socialize():
+    env = TestFileEnvironment('./test-output')
+    env.reset()
+    result = env.run('socl me')
+    assert result.stdout.startswith("You aren't authenticated yet")
