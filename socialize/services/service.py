@@ -14,7 +14,7 @@ class Service(object):
                 r = requests.get(BASE_URL + path, headers={'Authorization': 'Token ' + token})
                 return r.json()
             except Exception as e:
-                print e
+                print("An error occured. Send this to your administrator: " + str(e))
         else:
             return self.auth_failed()
 
@@ -25,7 +25,7 @@ class Service(object):
                 r = requests.post(BASE_URL + path, headers={'Authorization': 'Token ' + token}, data=data)
                 return r
             except Exception as e:
-                print e
+                print("An error occured. Send this to your administrator: " + str(e))
         else:
             return self.auth_failed()
 
@@ -35,7 +35,7 @@ class Service(object):
         :return: Status and message
         """
         sys.exit("You aren't authenticated yet. Please use the login or register command to do so.")
-        return 403, "Authentication failed"
+        return(403, "Authentication failed")
 
     def read_file(self, filename):
         """
@@ -49,6 +49,6 @@ class Service(object):
     def check_reponse(self, r, success,
                       error="There was an error with your request. Please use the --help function or contact the administrator."):
         if r.status_code == 200 and r.text != '400' and r.content != 403:
-            print success
+            print(str(success))
         else:
-            print error
+            print(str(error))

@@ -24,24 +24,27 @@ class MessageService(Service):
 
     def show_inbox(self, i):
         for message in i:
-            print "> Found message [id: "+str(message['id'])+"] from user " + str(message['user'])
+            print("> Found message [id: "+str(message['id'])+"] from user " + str(message['user']))
 
     def show_message(self, m):
-        print str(m['sender'] + "> "+m['content'])
+        if(str(m) != '404'):
+            print(str(m['sender'] + "> "+str(m['content'])))
+        else:
+            print("Message not found.")
 
     def show_convos(self, c):
-        print ""
+        print("")
 
         for conversation in c:
-            print ">>> " + conversation['username']
+            print(">>> " + str(conversation['username']))
 
-        print ""
+        print("")
 
     def show_convo(self, c):
-        print ""
+        print("")
         for message in c:
-            print str(message['user']) + "> "+message['content']
+            print(str(message['user']) + "> "+str(message['content']))
 
-        print ""
+        print("")
 
 messages = MessageService()

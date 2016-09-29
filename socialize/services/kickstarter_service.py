@@ -10,7 +10,7 @@ class KickstarterService(Service):
 
     def print_supporters(self, s):
         for supporter in s:
-            print ("%-40s %s" % (supporter['name'], supporter['message']))
+            print("%-40s %s" % (str(supporter['name']), str(supporter['message'])))
 
 
 

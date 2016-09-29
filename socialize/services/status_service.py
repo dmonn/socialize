@@ -15,7 +15,7 @@ class StatusService(Service):
         self.check_reponse(r, success="Successfully posted a new status")
 
     def print_status(self, status):
-        print(status['username']+"> "+status['message'])
+        print(str(status['username'])+"> "+str(status['message']))
 
 
 statusmanagement = StatusService()

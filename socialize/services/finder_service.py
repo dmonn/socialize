@@ -18,14 +18,14 @@ class FinderService(Service):
 
     def format_user_list(self, u):
         for user in u:
-            print user['username'] + ' - Interested in '+str(user['interests'])
+            print(str(user['username']) + ' - Interested in ' + str(user['interests']))
 
     def format_friend_list(self, f):
         for friend in f:
-            print "Found user " + friend['username']
+            print("Found user " + str(friend['username']))
 
     def format_group_list(self, g):
         for group in g:
-            print "Found group '"+group['name']+"' - "+str(group['description'])
+            print("Found group '" + str(group['name']) + "' - "+ str(group['description']))
 
 finders = FinderService()

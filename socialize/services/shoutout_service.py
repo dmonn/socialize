@@ -12,13 +12,13 @@ class ShoutService(Service):
 
     def post_status(self, message, anon=False):
         if anon:
-            print "Posting Shoutout as Anonymous"
+            print("Posting Shoutout as Anonymous")
 
         r = self.post('shoutout/', data={'message': str(message), 'anon': anon})
         self.check_reponse(r, success="Successfully posted a new shoutout")
 
     def print_shouts(self, status):
-        print(status['username']+"> "+status['message'])
+        print(str(status['username'])+"> "+str(status['message']))
 
 
 shoutouts = ShoutService()
