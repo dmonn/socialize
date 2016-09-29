@@ -21,10 +21,10 @@ class GroupService(Service):
     def get_group_messages(self, groupname):
         r = self.get('groups/' + groupname + '/messages/')
 
-        print ""
+        print("")
         for message in r:
             self.display_messages(message)
-        print ""
+        print("")
 
     def post_group_message(self, groupname, message):
         r = self.post('groups/' + groupname + '/messages/post/', data={'message': str(message)})
@@ -35,7 +35,7 @@ class GroupService(Service):
         if r != 400:
             self.display_group_info(r)
         else:
-            print "Something went wrong. Check if the groupname is right (Yes, we care about uppercases)."
+            print("Something went wrong. Check if the groupname is right (Yes, we care about uppercases).")
 
     def create_group(self, groupname, description=None, passphrase=None):
         r = self.post('groups/' + groupname + '/',
@@ -43,7 +43,7 @@ class GroupService(Service):
         self.check_reponse(r, success="Successfully created new group " + groupname, error="Couldn't create group.")
 
     def display_messages(self, m):
-        print m['username'] + "> " + m['message']
+        print(str(m['username']) + "> " + str(m['message']))
 
     def display_group_info(self, g):
         secho("")

@@ -65,3 +65,5 @@ target/
 
 # Custom
 .AUTHTOKEN
+
+test-output
