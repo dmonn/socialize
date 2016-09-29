@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+1.0.4 (2016-09-29)
+------------------
+* Improvements for Python3
+* Python3 Print/String Handling added
+
 1.0.3 (2016-09-26)
 ------------------
 * Improvements for API Version 1.0.1
