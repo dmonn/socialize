@@ -3,7 +3,8 @@ import os
 
 def create_token_file(token):
     try:
-        file = open(".AUTHTOKEN",'w')
+        home_directory = os.path.expanduser('~')
+        file = open(os.path.join(home_directory, ".AUTHTOKEN"), 'w')
         file.write(token['token'])
         file.close()
         return(200)
@@ -13,6 +14,7 @@ def create_token_file(token):
 
 def remove_token_file():
     try:
-        os.remove(".AUTHTOKEN")
+        home_directory = os.path.expanduser('~')
+        os.remove(os.path.join(home_directory, ".AUTHTOKEN"))
     except:
         print('Something went wrong!')
