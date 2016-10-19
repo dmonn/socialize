@@ -8,7 +8,7 @@ BASE_URL = 'https://socialize.dmonn.ch/api/'
 
 class Service(object):
     def get(self, path):
-        home_directory = os.environ['HOME']
+        home_directory = os.path.expanduser('~')
         authtoken_file = os.path.join(home_directory, ".AUTHTOKEN")
         if os.path.isfile(authtoken_file):
             try:
@@ -21,7 +21,7 @@ class Service(object):
             return self.auth_failed()
 
     def post(self, path, data):
-        home_directory = os.environ['HOME']
+        home_directory = os.path.expanduser('~')
         authtoken_file = os.path.join(home_directory, ".AUTHTOKEN")
         if os.path.isfile(authtoken_file):
             try:
