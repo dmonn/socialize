@@ -8,9 +8,11 @@ BASE_URL = 'https://socialize.dmonn.ch/api/'
 
 class Service(object):
     def get(self, path):
-        if os.path.isfile(".AUTHTOKEN"):
+        home_directory = os.environ['HOME']
+        authtoken_file = os.path.join(home_directory, ".AUTHTOKEN")
+        if os.path.isfile(authtoken_file):
             try:
-                token = self.read_file(".AUTHTOKEN")
+                token = self.read_file(authtoken_file)
                 r = requests.get(BASE_URL + path, headers={'Authorization': 'Token ' + token})
                 return r.json()
             except Exception as e:
@@ -19,9 +21,11 @@ class Service(object):
             return self.auth_failed()
 
     def post(self, path, data):
-        if os.path.isfile(".AUTHTOKEN"):
+        home_directory = os.environ['HOME']
+        authtoken_file = os.path.join(home_directory, ".AUTHTOKEN")
+        if os.path.isfile(authtoken_file):
             try:
-                token = self.read_file(".AUTHTOKEN")
+                token = self.read_file(authtoken_file)
                 r = requests.post(BASE_URL + path, headers={'Authorization': 'Token ' + token}, data=data)
                 return r
             except Exception as e:
