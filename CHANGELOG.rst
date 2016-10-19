@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.0.5 (2016-10-19)
+------------------
+* akodakim/master  .AUTHTOKEN is saved in the current directory 
+
 1.0.4 (2016-09-29)
 ------------------
 * Improvements for Python3
