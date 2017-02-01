@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.0.6 (2017-02-01)
+------------------
+* Changed deprecated `file()` function for `open()`
+
 1.0.5 (2016-10-19)
 ------------------
 * akodakim/master  .AUTHTOKEN is saved in the current directory 

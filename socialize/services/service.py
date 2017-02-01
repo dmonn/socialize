@@ -47,7 +47,7 @@ class Service(object):
         :param filename: String
         :return: File content
         """
-        with file(filename) as f:
+        with open(filename, 'r') as f:
             return f.read()
 
     def check_reponse(self, r, success,
